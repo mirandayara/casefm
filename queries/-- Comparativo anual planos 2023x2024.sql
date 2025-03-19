@@ -11,9 +11,9 @@ LEFT JOIN
     ON u.user_id = ut.user_id
 WHERE 
      ut.plan IS NOT NULL
-    AND EXTRACT(YEAR FROM ut.approved_at) IN (2023, 2024)  -- Filtro para trazer apenas os anos desejados
+    AND EXTRACT(YEAR FROM ut.approved_at) IN (2023, 2024)  
 GROUP BY 
     ut.plan
 ORDER BY 
-    (total_paid_value_2024 + total_paid_value_2023) DESC  -- Ordena pelo total acumulado nos dois anos
+    (total_paid_value_2024 + total_paid_value_2023) DESC 
 LIMIT 9;
